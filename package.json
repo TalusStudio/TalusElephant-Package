@@ -1,8 +1,8 @@
 {
-  "name": "com.talus.talusbackend",
+  "name": "com.talus.taluselephant",
   "version": "1.0.0",
   "displayName": "TalusElephant",
-  "description": "Elephant integration.",
+  "description": "ElephantSDK integration.",
   "unity": "2020.3",
   "unityRelease": "9f1",
   "keywords": [

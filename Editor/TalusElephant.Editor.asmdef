@@ -2,6 +2,7 @@
     "name": "TalusElephant.Editor",
     "rootNamespace": "",
     "references": [
+        "TalusElephant"
     ],
     "includePlatforms": [
         "Editor"
