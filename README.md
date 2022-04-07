@@ -1,14 +1,13 @@
-# TalusCI Package
+# TalusElephant Package
 
-- To work with Jenkins pipeline.
+- Don't forget the update 'Editor/InjectAssets.cs'
 
-# ❗ Requirements 
-- Unity 2020.3.9f1 
-- Unity Editor Coroutines Package
+# ❗ Dependencies 
+- FacebookSDK
 
 # 💿 Installation
 - Clone repository and extract it.
 - In Unity, 
   - Window->Package Manager->Add Package(Plus Icon)->Add Package From git URL
   - Paste following link to Input Field and press "Add"
-  - https://github.com/TalusStudio/TalusCI-Package.git
+  - https://github.com/TalusStudio/...
