@@ -30,8 +30,11 @@ namespace ElephantSDK
                     Path.Combine(Application.streamingAssetsPath, "arrow2.png"));
 
                 // copy elephant-scene
+                string elephantScenePath = Application.dataPath + "/Scenes/Template_Persistent";
                 FileUtil.CopyFileOrDirectory(Path.Combine(ScenePath, "elephant_scene.unity"),
-                    Path.Combine(Application.dataPath + "/Scenes/Template_Persistent", "elephant_scene.unity"));
+                    Path.Combine(elephantScenePath, "elephant_scene.unity"));
+
+                Debug.Log("elephant_scene copied to: " + elephantScenePath);
             }
             catch (Exception e)
             {
