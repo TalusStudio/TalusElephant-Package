@@ -1,0 +1,17 @@
+{
+  "name": "com.talus.talusbackend",
+  "version": "1.0.0",
+  "displayName": "TalusElephant",
+  "description": "Elephant integration.",
+  "unity": "2020.3",
+  "unityRelease": "9f1",
+  "keywords": [
+    "elephant",
+    "backend"
+  ],
+  "author": {
+    "name": "Talus Studio",
+    "email": "info@talusstudio.com",
+    "url": "https://www.talusstudio.com"
+  }
+}
