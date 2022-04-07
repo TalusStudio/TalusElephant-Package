@@ -7,6 +7,7 @@ namespace ElephantSDK
 {
     public class InjectAssets
     {
+        public const string ScenePath = "Packages/com.talus.taluselephant/";
         public const string AssetPath = "Packages/com.talus.taluselephant/UI/Textures/Resources/";
 
         [UnityEditor.Callbacks.DidReloadScripts]
@@ -27,6 +28,10 @@ namespace ElephantSDK
                     Path.Combine(Application.streamingAssetsPath, "idfa_bg.png"));
                 FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "arrow2.png"),
                     Path.Combine(Application.streamingAssetsPath, "arrow2.png"));
+
+                // copy elephant-scene
+                FileUtil.CopyFileOrDirectory(Path.Combine(ScenePath, "elephant_scene.unity"),
+                    Path.Combine(Application.dataPath + "/Scenes/Template_Persistent", "elephant_scene.unity"));
             }
             catch (Exception e)
             {
