@@ -13,5 +13,8 @@
     "name": "Talus Studio",
     "email": "info@talusstudio.com",
     "url": "http://www.talusstudio.com"
+  },
+  "dependencies": {
+    "com.talus.talusfacebook": "1.0.0"
   }
 }
