@@ -14,7 +14,6 @@ namespace ElephantSDK
         public static void OnReloadScripts()
         {
             string path = "Assets/StreamingAssets";
-
             if (!AssetDatabase.IsValidFolder(path))
             {
                 AssetDatabase.CreateFolder("Assets", "StreamingAssets");
@@ -29,16 +28,47 @@ namespace ElephantSDK
                 FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "arrow2.png"),
                     Path.Combine(Application.streamingAssetsPath, "arrow2.png"));
 
-                // copy elephant-scene
-                string elephantScenePath = Application.dataPath + "/Scenes/Template_Persistent";
-                FileUtil.CopyFileOrDirectory(Path.Combine(ScenePath, "elephant_scene.unity"),
-                    Path.Combine(elephantScenePath, "elephant_scene.unity"));
-
-                Debug.Log("elephant_scene copied to: " + elephantScenePath);
+                CopyElephantScene();
             }
             catch (Exception e)
             {
                 // Ignore
+            }
+
+            CreateElephantSettings();
+        }
+
+        private static void CopyElephantScene()
+        {
+            // copy elephant-scene
+            string elephantScenePath = Application.dataPath + "/Scenes/Template_Persistent";
+            FileUtil.CopyFileOrDirectory(Path.Combine(ScenePath, "elephant_scene.unity"),
+                Path.Combine(elephantScenePath, "elephant_scene.unity"));
+
+            Debug.Log("elephant_scene copied to: " + elephantScenePath);
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        private static void CreateElephantSettings()
+        {
+            var settings = Resources.Load<ElephantSettings>("ElephantSettings");
+            if (settings == null)
+            {
+                settings = ScriptableObject.CreateInstance<ElephantSettings>();
+
+                string settingsPath = "Assets/Resources";
+                if (!AssetDatabase.IsValidFolder(settingsPath))
+                {
+                    AssetDatabase.CreateFolder("Assets", "Resources");
+                }
+
+                string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(settingsPath + "/ElephantSettings.asset");
+
+                AssetDatabase.CreateAsset(settings, assetPathAndName);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
             }
         }
     }
