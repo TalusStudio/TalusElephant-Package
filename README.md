@@ -3,7 +3,7 @@
 - Don't forget the update 'Editor/InjectAssets.cs'
 
 # ❗ Dependencies 
-- FacebookSDK (https://github.com/TalusStudio/TalusFacebook-Package)
+- [FacebookSDK](https://github.com/TalusStudio/TalusFacebook-Package)
 
 # 💿 Installation
 - Clone repository and extract it.
