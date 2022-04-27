@@ -1,6 +1,6 @@
 # TalusElephant Package
 
-- Don't forget the update 'Editor/InjectAssets.cs'
+- Don't forget the update ```Editor/InjectAssets.cs```
 
 # ❗ Dependencies 
 - [TalusFacebook Package](https://github.com/TalusStudio/TalusFacebook-Package)
