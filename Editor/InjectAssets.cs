@@ -29,13 +29,12 @@ namespace ElephantSDK
                     Path.Combine(Application.streamingAssetsPath, "arrow2.png"));
 
                 CopyElephantScene();
+                CreateElephantSettings();
             }
             catch (Exception e)
             {
                 // Ignore
             }
-
-            CreateElephantSettings();
         }
 
         private static void CopyElephantScene()
