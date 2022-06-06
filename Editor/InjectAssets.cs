@@ -1,19 +1,19 @@
 using System;
 using System.IO;
+
 using UnityEditor;
+
 using UnityEngine;
 
 namespace ElephantSDK
 {
     public class InjectAssets
     {
-        public const string ScenePath = "Packages/com.talus.taluselephant/";
-        public const string AssetPath = "Packages/com.talus.taluselephant/UI/Textures/Resources/";
-
         [UnityEditor.Callbacks.DidReloadScripts]
         public static void OnReloadScripts()
         {
             string path = "Assets/StreamingAssets";
+
             if (!AssetDatabase.IsValidFolder(path))
             {
                 AssetDatabase.CreateFolder("Assets", "StreamingAssets");
@@ -21,53 +21,16 @@ namespace ElephantSDK
 
             try
             {
-                FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "idfa_4c.png"),
+                FileUtil.CopyFileOrDirectory(Path.Combine("Assets/Elephant/UI/Textures/Resources/", "idfa_4c.png"),
                     Path.Combine(Application.streamingAssetsPath, "idfa_4c.png"));
-                FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "idfa_bg.png"),
+                FileUtil.CopyFileOrDirectory(Path.Combine("Assets/Elephant/UI/Textures/Resources/", "idfa_bg.png"),
                     Path.Combine(Application.streamingAssetsPath, "idfa_bg.png"));
-                FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "arrow2.png"),
+                FileUtil.CopyFileOrDirectory(Path.Combine("Assets/Elephant/UI/Textures/Resources/", "arrow2.png"),
                     Path.Combine(Application.streamingAssetsPath, "arrow2.png"));
-
-                CopyElephantScene();
-                CreateElephantSettings();
             }
             catch (Exception e)
             {
                 // Ignore
-            }
-        }
-
-        private static void CopyElephantScene()
-        {
-            // copy elephant-scene
-            string elephantScenePath = Application.dataPath + "/Scenes/Template_Persistent";
-            FileUtil.CopyFileOrDirectory(Path.Combine(ScenePath, "elephant_scene.unity"),
-                Path.Combine(elephantScenePath, "elephant_scene.unity"));
-
-            Debug.Log("elephant_scene copied to: " + elephantScenePath);
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-        }
-
-        private static void CreateElephantSettings()
-        {
-            var settings = Resources.Load<ElephantSettings>("ElephantSettings");
-            if (settings == null)
-            {
-                settings = ScriptableObject.CreateInstance<ElephantSettings>();
-
-                string settingsPath = "Assets/Resources";
-                if (!AssetDatabase.IsValidFolder(settingsPath))
-                {
-                    AssetDatabase.CreateFolder("Assets", "Resources");
-                }
-
-                string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(settingsPath + "/ElephantSettings.asset");
-
-                AssetDatabase.CreateAsset(settings, assetPathAndName);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
             }
         }
     }
