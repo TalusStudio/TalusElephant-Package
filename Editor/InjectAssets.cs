@@ -9,6 +9,8 @@ namespace ElephantSDK
 {
     public class InjectAssets
     {
+        public const string AssetPath = "Packages/com.talus.taluselephant/UI/Textures/Resources/";
+
         [UnityEditor.Callbacks.DidReloadScripts]
         public static void OnReloadScripts()
         {
@@ -21,11 +23,11 @@ namespace ElephantSDK
 
             try
             {
-                FileUtil.CopyFileOrDirectory(Path.Combine("Assets/Elephant/UI/Textures/Resources/", "idfa_4c.png"),
+                FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "idfa_4c.png"),
                     Path.Combine(Application.streamingAssetsPath, "idfa_4c.png"));
-                FileUtil.CopyFileOrDirectory(Path.Combine("Assets/Elephant/UI/Textures/Resources/", "idfa_bg.png"),
+                FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "idfa_bg.png"),
                     Path.Combine(Application.streamingAssetsPath, "idfa_bg.png"));
-                FileUtil.CopyFileOrDirectory(Path.Combine("Assets/Elephant/UI/Textures/Resources/", "arrow2.png"),
+                FileUtil.CopyFileOrDirectory(Path.Combine(AssetPath, "arrow2.png"),
                     Path.Combine(Application.streamingAssetsPath, "arrow2.png"));
             }
             catch (Exception e)
